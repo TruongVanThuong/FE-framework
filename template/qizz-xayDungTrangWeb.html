@@ -1,0 +1,119 @@
+
+<div class="start_qizz row" ng-show="!inProgess">
+  <div class="container mb-3 table-bordered">
+    <div class="aioCourseDesc">
+      <h3 class="textBlue">{{NameQ}}.</h3>
+      <div class="wrapContent" style="background-image: url(../images/thitracnghiem.png);">
+        <div>
+          <div>
+            <p><span class="text-warning">- Thời gian học tập với khóa học:</span> Ngay khi bạn đăng ký thành
+              công khóa học đến khi hết hạn khóa học (31/05/2023)</p>
+            <p><span class="text-warning">- Thời gian học:</span> Học bất cứ thời gian nào</p>
+            <p><span class="text-warning">- Hình thức học:</span> Học trực tuyến thông qua máy tính, điện thoại,
+              máy tính bảng có kết nối internet</p>
+          </div>
+          <img src="">
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="margin: 23px 0;">
+      <div class="btn btn-primary" ng-click="start()">Start qizz poly</div>
+    </div>
+  </div>
+</div>
+
+
+<div ng-show="inProgess">
+  <!-- Kết quả start -->
+  <div class="start_qizz row" ng-show="quizOver">
+    <div class="col text-center">
+      <h3>Kết thúc bài làm môn : {{NameQ}}</span></h3>
+      <h3>Điểm của bạn là ({{score}}đ) - <span ng-if="score < 5">Rớt</span><span ng-if="score > 5">Đậu</span> </h3>
+      <!-- tableQuestion______________ -->
+      <div class="tableQuestion" ng-controller="tableQuestion">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th><span id="thc_tst_pdo_1_1">Số thứ tự</span></th>
+              <th><span id="thc_tst_pdo_1_2">Question ID</span></th>
+              <th><span id="thc_tst_pdo_1_3">Tiêu đề</span></th>
+              <th><span id="thc_tst_pdo_1_4">Điểm tối đa</span></th>
+              <th><span id="thc_tst_pdo_1_5">Đạt điểm</span></th>
+              <th><span id="thc_tst_pdo_1_6">Đúng / Sai</span></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="x in sts">
+              <td>{{x.id}}</td>
+              <td>{{x.id_quiz}}</td>
+              <td>{{x.quest}}</td>
+              <td>1</td>
+              <td>
+                <span ng-if="x.ans_check == x.id_ans">1</span>
+                <span ng-if="x.ans_check != x.id_ans">0</span>
+              </td>
+              <td>
+                <span ng-if="x.ans_check == x.id_ans">Đúng</span>
+                <span ng-if="x.ans_check != x.id_ans">Sai</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="btn btn-primary" ng-click="reset()">Làm lại</div>
+        <div class="btn btn-primary" ng-click="saveKQ()">Lưu kết quả</div>
+      </div>
+    </div>
+  </div>
+  <!-- Kết quả end -->
+
+  <div ng-show="!quizOver">
+    <div class="row countdown_time">
+      <div class="col text-center">
+        <h2 style="color: #2473ff;">
+          <span class="glyphicon glyphicon-time" style="top: 3px;"></span>
+          <span id="minute"></span> :
+          <span id="second"></span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading justify-content-between">
+        <div>
+          <img src="./images/logos/WEBU.jpg" width="25" alt="">
+          <span>{{NameQ}}</span>
+          <span class="panel" style="float: right;">{{index+1}}/10</span>
+        </div>
+      </div>
+      <div class="panel-body">
+        <label class="form-check-label"> {{index+1}}. {{question}} </label>
+        <hr>
+        <form action="">
+          <input type="hidden" name="" ng-model="sts.question">
+          <div class="form-check " ng-repeat="option in options">
+            <p class="form-check-label">
+              <input type="radio" class="form-check-input" name="answer" value="{{option.Id}}"> {{option.Text}}
+            </p>
+          </div>
+
+        </form>
+      </div>
+      <div class="panel-footer d-flex justify-content-between">
+
+        <button ng-show="answerMode" ng-click="checkAnswer()" class="btn btn-primary">Submit</button>
+        <ul class="pager m-1" style="float: right; margin-bottom: 12px;">
+          <li><button ng-click="prevQuestion()"><span class="glyphicon glyphicon-hand-left"></span></button></li>
+          <li><button ng-show="!answerMode" ng-click="nextQuestion()"><span
+                class="glyphicon glyphicon-hand-right"></span></button></li>
+        </ul>
+        <span ng-show="correctAns"></span>
+        <span ng-show="!correctAns"></span>
+      </div>
+      <span ng-show="paginations()"></span>
+    </div>
+  </div>
+</div>
+<!-- </article> -->

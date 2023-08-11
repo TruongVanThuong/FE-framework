@@ -1,0 +1,28 @@
+<article class="col-md-8 text-center list" ng-controller="subjectCtrl">
+  <div class="col-sm-6 poly-prod item" ng-repeat="sub in list_subject | limitTo:4:begin">
+    <a href="#thitracnghiem/{{sub.Id}}/{{sub.Name}}">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            {{sub.Name}}
+          </h4>
+        </div>
+        <div class="panel-body">
+          <img src="./images/logos/{{sub.Logo}}" alt="">
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- phan trang -->
+  <ul class="pager ">
+    <li><a href="" ng-click="first()"><span class="glyphicon glyphicon-hand-up"></span></a></li>
+    <li><a href="" ng-click="prev()"><span class="glyphicon glyphicon-hand-left"></span></a></li>
+    <li><a href="" ng-click="next()"><span class="glyphicon glyphicon-hand-right"></span></a></li>
+    <li><a href="" ng-click="last()"><span class="glyphicon glyphicon-hand-down"></span></a></li>
+  </ul>
+  <!-- <script src="./js/pagination.js"></script> -->
+</article>
+
+<!-- ng-include   aside.html     -->
+<div ng-include="'./template/aside.html'"></div>

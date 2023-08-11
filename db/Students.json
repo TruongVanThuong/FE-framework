@@ -1,0 +1,59 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "username": "thuongtv",
+      "password": "1234567",
+      "fullname": "Truong Van Thuong",
+      "email": "thuongtv@fpt.edu.vn",
+      "gender": "Nam",
+      "birthday": "2001-01-01",
+      "schoolfee": "1700000",
+      "marks": "0"
+    },
+    {
+      "id": 2,
+      "username": "pheonv",
+      "password": "iloveyou",
+      "fullname": "Nguyễn Văn Chí Phèo",
+      "email": "pheonv@fpt.edu.vn",
+      "gender": "Nam",
+      "birthday": "1985-10-11",
+      "schoolfee": "2500000",
+      "marks": "0"
+    },
+    {
+      "id": 3,
+      "username": "nopt",
+      "password": "iloveyou",
+      "fullname": "Phạm Thị Nở",
+      "email": "nopt@fpt.edu.vn",
+      "gender": "Nu",
+      "birthday": "1993-05-15",
+      "schoolfee": "2000000",
+      "marks": "0"
+    }
+  ],
+  "datalogin": [
+    {
+      "id": 1,
+      "username": "thuongtv",
+      "password": "1234567",
+      "fullname": "Truong Van Thuong",
+      "email": "thuongtv@fpt.edu.vn",
+      "gender": "Nam",
+      "birthday": "2001-01-01",
+      "schoolfee": "1700000",
+      "marks": "0"
+    }
+  ],
+  "dataCourse": [
+    {
+      "id": 1,
+      "id_acc": 1,
+      "id_cource": "ADAV",
+      "nameCource": "Lập trình Android nâng cao",
+      "markCource": 2
+    }
+  ]
+}

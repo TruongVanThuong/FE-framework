@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FPT Polytechnic</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Poly -->
+  <link href="css/poly.css" rel="stylesheet" />
+  <script src="./js/angular.min.js"></script>
+  <script src="./js/myApp.js"></script>
+  <script src="./js/angular-route.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+  <div class="container-fluid">
+    <header class="row" style="height: 100%;">
+
+      <img width="100%" height="100%" src="images/banner.png" />
+    </header>
+    <nav class="row">
+      <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <!--Menu-->
+          <ul class="nav navbar-nav">
+            <li><a class="navbar-brand" href="#/!">FPT Polytechnic</a></li>
+            <li><a href="#/!"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+            <li><a href="#gioithieu"><span class="glyphicon glyphicon-th-list"></span> Giới thiệu</a></li>
+            <li><a href="#lienhe"><span class="glyphicon glyphicon-earphone"></span> Liên hệ</a></li>
+            <li><a href="#gopy"><span class="glyphicon glyphicon-envelope"></span> Góp ý</a></li>
+            <li><a href=""><span class="glyphicon glyphicon-question-sign"></span> Hỏi đáp</a></li>
+            <li class="dropdown" ng-controller="register">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                Tài khoản <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li ng-show="formHidden"><a href="#dangnhap" data-toggle="modal" data-target="#exampleModal"><span
+                      class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                <li ng-show="!formHidden"><a href="#thongtintk"><span class="glyphicon glyphicon-info-sign"></span>
+                    Thông
+                    tin tài khoản</a></li>
+                <!-- ------- -->
+                <li class="divider"></li>
+
+                <li ng-show="formHidden"><a href="#dangki" data-toggle="modal" data-target="#my-modal"> <span
+                      class="glyphicon glyphicon-plus-sign"></span> Đăng ký thành viên</a></li>
+                <li ng-show="!formHidden"><a href="#doimk"><span class="glyphicon glyphicon-edit"></span> Đổi mật khẩu</a></li>
+                <!-- ------- -->
+                <li class="divider"></li>
+
+                <li ng-show="formHidden"><a href="#quenmk"><span class="glyphicon glyphicon-question-sign"></span> Quên
+                    mật khẩu</a></li>
+                <li ng-show="!formHidden"><a href="#capnhattk"><span class="glyphicon glyphicon-edit"></span> Cập nhật hồ
+                    sơ</a></li>
+                <!-- ------- -->
+                <li ng-show="!formHidden" class="divider"></li>
+
+                <li ng-show="!formHidden"><a ng-click="logout()" href=""><span class="glyphicon glyphicon-off"></span>
+                    Đăng xuất</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="">English</a></li>
+            <li><a href="">Tiếng Việt</a></li>
+          </ul>
+          <!--Menu-->
+        </div>
+      </div>
+    </nav>
+
+    <!-- ngRoute ng-view ____________________ -->
+    <div ng-view></div>
+
+  </div>
+  <footer style="padding: 0;" class="panel panel-default container-fluid">
+    <div class="panel-heading text-center">
+      <p>FPT Polytechnic &copy; 2017. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- jQuery -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

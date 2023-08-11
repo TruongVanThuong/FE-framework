@@ -1,0 +1,63 @@
+<div class="">
+
+  <article class="col-md-8 text-center" ng-controller="register">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Thông tin tài khoản
+        </h4>
+      </div>
+      <div class="panel-body text-left row" style="display:flex">
+        <div class="form col-md-7">
+          <label class="info_acc">Họ Tên :</label> <strong>{{student.datalogin[0].fullname}}</strong> <br>
+          <label class="info_acc">Email :</label> <strong>{{student.datalogin[0].email}}</strong> <br>
+          <label class="info_acc">Giới tính :</label> <strong>{{student.datalogin[0].gender}}</strong> <br>
+          <label class="info_acc">Ngày sinh :</label> <strong>{{student.datalogin[0].birthday}}</strong> <br>
+          <label class="info_acc">Học phí :</label> <strong>0</strong>
+        </div>
+        <div class="img_avt col-md-5">
+          <div class="box_img">
+            <img src="./images/8099496.png" alt="img_avt">
+          </div>
+        </div>
+      </div>
+
+      <div class="subject_infor panel-body" ng-controller="subjectCtrl">
+        <div class="box_subject">
+          <h3 class="text-left">Thành tích các khoá học 
+            <span ng-if="studs.dataCourse.id_acc != studs.datalogin.id">(0)</span>
+            <span ng-if="studs.dataCourse.id_acc == studs.datalogin.id">({{studs.dataCourse.length}})</span> 
+          </h3>
+        </div>
+
+        <div class="row" style="display: flex;"  ng-if="studs.dataCourse.id_acc == studs.datalogin.id">
+          <div class="subject_left col-md-6">
+            <ul id="collapse1" class="list-group panel-collapse collapse in">
+              <li class="list-group-item " ng-repeat="sub in studs.dataCourse | limitTo: (studs.dataCourse.length/2)">
+                <p class="text-left"><span class="labelName">{{sub.nameCource}}</span><span class="label badge">{{sub.markCource}}</span></p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="subject_right col-md-6">
+            <ul id="collapse1" class="list-group panel-collapse collapse in">
+              <li class="list-group-item " ng-repeat="sub in studs.dataCourse | limitTo: list_subject.length : (studs.dataCourse.length/2)">
+                <p class="text-left"><span class="labelName">{{sub.nameCource}}</span><span class="label badge">{{sub.markCource}}</span></p>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row" hidden style="display: flex;"  ng-if="student.dataCourse.id_acc != student.datalogin.id">
+        </div>
+      </div>
+
+    </div>
+
+  </article>
+
+  <!-- ng-include   aside.html     -->
+  <div ng-include="'./template/aside.html'"></div>
+
+</div>
